@@ -48,8 +48,9 @@ def main(_):
   numFeatures = 18*18; #Number of features in one convolution layer#
   Delta = 2*numHidUnits*numFeatures; #Function sensitivity#
   epsilon = 0.5; #Privacy budget epsilon#
+  batchsize = 100; #batch size#
   
-  loc, scale1 = 0., Delta/(epsilon*D); #0-mean and variant of noise#
+  loc, scale1 = 0., Delta/(epsilon*255*batchsize); #0-mean and variant of noise#
   
   W_conv1Noise = np.random.laplace(loc, scale1, 28 * 28);#This is the latest version of W_conv1Noise#
   W_conv1Noise = np.reshape(W_conv1Noise, [-1, 28, 28, 1]);#This is the latest version of W_conv1Noise#
