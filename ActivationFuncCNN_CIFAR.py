@@ -35,7 +35,7 @@ numHidUnits = 12*12; #Number of hidden units in one convolution layer#
 numFeatures = 16*16*3; #Number of features in one convolution layer#
 Delta = 2*numHidUnits*numFeatures; #Function sensitivity#
 epsilon = 1.0; #Privacy budget epsilon#
-loc, scale1 = 0., Delta*numHidUnits/(epsilon*D); #0-mean and variant of noise#
+loc, scale1 = 0., Delta*numHidUnits/(epsilon*255*FLAGS.batch_size); #0-mean and variant of noise#
 W_conv1Noise = np.random.laplace(loc, scale1, 128*24*24*3); #This is the latest version of W_conv1Noise#
 W_conv1Noise = np.reshape(W_conv1Noise, [128, 24, 24, 3]); #This is the latest version of W_conv1Noise#
 
